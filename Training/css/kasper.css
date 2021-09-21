@@ -1,0 +1,916 @@
+/* Start Variables */
+
+:root {
+    --main-color: #19c8fa;
+    --transparent-color: rgb(15 116 143 / 70%);
+    --section-padding: 100px;
+  }
+/* Start Global Rules */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ازالة اللست استايل من كل اليو ال  */
+ul{
+    list-style: none;
+}
+
+.container{
+   
+    background-color:#F8D210;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 800px; */
+    min-height: 75px;
+}
+
+
+    /* small */
+
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+
+/* medium */
+
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+
+/* large */
+
+ @media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+} 
+
+/* end Global Rules */
+
+/* القسم الثابت */
+.qsm-thabt{
+    padding:20px;
+}
+
+.m7tawah{
+    text-align: center;
+}
+
+.m7tawah h2{
+    font-weight: normal;
+    font-size: 40px;
+    /* لتوزيع الشكل  */
+    position: relative;
+
+    margin-bottom:70px ;
+    /* حروف كبيرة */
+    text-transform: uppercase;
+
+    position: relative;
+}
+
+/* خط تحت كلمة */
+.m7tawah h2::before{
+    content: '';
+    position: absolute;
+    left: 39%;
+    background-color: black;
+    height: 2px;
+    width: 185px;
+    bottom: -11px;
+
+
+}
+
+.m7tawah h2::after{
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -19px;
+}
+
+.m7tawah p {
+    width: 550px;
+    /* مارجن
+    من فوق صفر
+    يمين ويسار اوتو
+    من الاسفل مئة  */
+    margin: 0 auto 100px;
+    /* ماكس حتى لا يخرج في الموبايل من مساحته  */
+    max-width: 100%;
+    line-height: 2;
+    /* الالوان التي تكون غير واضحة يفضل تكون متغير */
+    color: #777;
+}
+
+
+
+
+/* start header */
+
+header{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+/* عمل الخط نهاية الهيدر  */
+
+header .container::after{
+    content: '';
+    position: absolute;
+
+    /* الارتفاع */
+    height: 3px;
+
+    background-color:#2FF3E0;
+
+  
+    bottom: 0;
+    width: calc(100% - 30px);
+  left: 15px;
+}
+
+
+
+/* اللوقو */
+header .logo{
+    height: 40px;
+    /* transform: translate(-50px,100px);
+    transform: rotate(45deg); */
+    transition: 0.3s;
+    
+    
+}
+
+header:hover .logo{
+    /* transform: rotate(0deg); */
+}
+
+header nav{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header nav .toggle-menu{
+    color: black;
+    font-size: x-large;
+}
+
+/* الايقونة تظهر فقط في مساحة الصغيرة */
+@media (min-width:768px ){
+    header nav .toggle-menu{
+        display: none;
+    }
+}
+
+/* توزيع اللنكات */
+header nav ul{
+    display: flex;
+    /* position: relative; */
+    margin-right: 45px;
+    
+
+   
+}
+
+/* اخفاء اللنكات في شاشة الموباسل واظهارها كقائمة */
+@media (max-width:767px){
+    header nav ul{
+        display: none;
+    }
+
+    header nav .toggle-menu:hover::after{
+        content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ff9800 transparent;
+    position: absolute;
+    right: 88px;
+    top: 55px;
+    }
+
+    header nav .toggle-menu:hover + ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:100%;
+
+        background-color:#f5171ebb;
+        width: 50%;
+        text-align: center;
+
+    }
+
+
+}
+
+
+
+/* لماذا تم استخدام البوسشن هنا */
+/* معنى + 
+لماذا تثبيت مسافة يكون في الكونتينر ولييس في الهيدر 
+هل يوجد طريقة لجعل السهم البرتقالي يتبع المربع الاحمر بتلقائية ؟
+*/
+
+
+
+
+/* سؤال هنا
+لم افهم ما هو السبب الذي يجعل اعطاء البوسيشن
+لل 
+ header nav ul  position: relative;
+ header nav ul li a /* position: absolute; 
+ تجعل اللنكات تخرج
+ */
+ 
+
+header nav ul li a {
+    padding: 30px 10px;
+    /* position: absolute; */
+    display: block;
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+    position: relative;
+    
+  
+    z-index: 2;
+}
+
+header nav ul li a:active,
+header nav ul li a:hover
+{
+color: chartreuse;
+border-bottom: 5px solid rgb(30, 210, 195) ;
+}
+
+header nav .form{
+    width: 40px;
+height: 30px;
+position: relative;
+margin-left:30px;
+border-left: 1px solid white;
+}
+
+
+
+header nav .form i{
+    color: crimson;
+    position: absolute;
+    font-size: 20px;
+  top: 50%;
+  /* كيفية وفوائد استخدام القيمة التي في الاسفل */
+  transform: translateY(-50%);
+  right: 0;
+  
+}
+
+/* 
+
+السلام عليكم
+https://codepen.io/ahmad_coding_87/pen/MWmyYaB
+
+في هذا التطبيق حين اختيار زر الهوم يظهر خط بالاسفل , لكن الناف بار يتمدد الى الاسفل 
+
+س1 : ما سبب هذا التمدد ؟
+س2 : كيف اوقف هذا التمدد ؟
+س3 : اردت معرفة هل البورد في الهوفر يقوم باضافة مسافة للعنصر ولكنني لم استطع العثور عليه عند استخدام inspcet فكيف اعثر عليه ؟
+
+السبب انه راح يضاف 5 بكسل على حجم العنصر الحالي عند التمرير عليه بسبب الإطار الي وضعته
+
+الحلول كثيرة بس ابسطها انك تستخدم خاصية max-height بهذا الشكل:
+*/
+header nav ul li a {
+    max-height: 75px;
+    /* transform: translate(-145px,0px) */
+     }
+
+.form:hover i{
+    animation-name:blink-1 ;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+
+.blink-1 {
+	-webkit-animation: blink-1 0.6s both;
+	        animation: blink-1 0.6s both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-7-12 21:44:36
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation blink-1
+ * ----------------------------------------
+ */
+ @-webkit-keyframes blink-1 {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+  @keyframes blink-1 {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+  
+
+
+/* end header */
+
+.photo{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  align-items: center;
+}
+
+.photo img{
+    transition: 0.5s;
+    justify-content: center;
+}
+
+.photo:hover img{
+    transform: scale(1.3) rotate(5deg);
+    opacity: 0.6;
+}
+
+/* start Search Box */
+
+/* الهيكل الاساسي
+ */
+.search-box{
+    position: absolute;
+    top: 6%;
+    left: 77%;
+    
+    transform: translate(-50%,-50%);
+    background-color: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding:10px;
+}
+
+.search-box:hover > .search-txt{
+    width: 140px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn{
+   background: rgb(255, 255, 255);
+}
+
+
+.search-btn{
+    /* لون الايقونة */
+    color:#e84118;
+    float: right;
+
+    /* عمل الدائرة */
+    width: 40px;
+    height: 40px;
+    border-radius:50% ;
+    background: #c3e40c;
+
+    transform: translate(0px,-10px);
+
+    text-decoration: none;
+
+   
+    /* background: #2f3640; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt{
+    /* 
+    زالة الاطار الداخلي والخلفية والاطار الخارجي */
+    border: none;
+    background: none;
+    outline: none;
+
+
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width:0 ;
+
+    transform: translate(0px,-10px);
+}
+/* end Search Box */
+
+/* Start Landing */
+.landing{
+    /* حد مساحة القسم */
+    min-height: 100vh;
+    /* اللون في حال عدم اشتغال الصورة */
+    background-color: #1f2021;
+    /* صورة العرض */
+    background-image: url(/images/d.jpg);
+    background-size: cover;
+
+    
+/* حتى تأتي الطبقة السوداء فوقه  */
+position: relative;
+
+
+}
+
+/* الطبقة السوداء */
+.landing .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(0 0 0 / 60%) ;
+    
+}
+
+
+/* توسيط قسم النصوص في المنتصف  */
+.landing .text{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    padding:50px ;
+    background-color: #19c8fa;
+    width: 50%;
+    padding:50px ;
+
+    display: flex;
+    /* وضع النص في الاخير */
+    justify-content: flex-end;
+    
+}
+
+.landing .text .content{
+  /* الان سيشتغل الجست فاي */
+  max-width: 500px;
+
+  /* border-style: dotted solid; */
+}
+
+/* تنسيقه لحجم الموبايل */
+@media (max-width:767px) {
+    .landing .text{
+        width: 100%;
+    }
+    .landing .text .content{
+        max-width:100%
+    }
+}
+
+.landing .text .content h2{
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    /* مساحة بين العنوان والنص الذي تحته  */
+    margin-bottom: 50px;
+
+   
+}
+
+.landing .text .content p{
+    font-size: 14px;
+  line-height: 2;
+
+ 
+}
+
+/* الاسهم */
+
+/* توسيط العنصر */
+.landing .change-background{
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* لون الايقونة */
+    color: white;
+}
+
+@media (max-width:767px){
+    .landing .change-background{
+        display: none;
+    }
+}
+
+.landing .fa-angle-left{
+    left: 30px;
+}
+
+
+.landing .fa-angle-right{
+    right: 30px;
+}
+
+.landing .bullets{
+     /* توسيط العنصر */
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     bottom: 30px;
+     /* gkjp;l */
+     display: flex;
+}
+
+.landing .bullets li{
+    /* اعطاء الشكل للخواص */
+    width: 20px;
+    height: 20px;
+    /* ظهور الاطار */
+    border: 1px solid white;
+    /* عمل الشكل دائري  */
+    border-radius: 50%;
+    /* مسافة بين الدوائر  */
+    margin-right:10px ;
+
+    /* يمكن عمل المسافات بالسبي بتوسين بالفلكس */
+
+
+}
+
+.landing .bullets li.active{
+    /* لون الدائرة  */
+    background-color: var(--main-color);
+    /* لون اطار الدائرة  */
+    border-color:var(--main-color) ;
+}
+
+
+/* end Landing */
+
+ /* Start Services  */
+
+ .services{
+     padding-top: 50px;
+     padding-bottom: 50px;
+ }
+
+ /* تنسيق شاشة الهاتف للبوكس  */
+
+ @media (min-width:768px){
+    .services .services-container{
+        /* انشاء نظام العواميد */
+        display: grid;
+        /* عدد العواميد  */
+        /* 
+        auto-fill املأ المساحة المتوفرة
+         minmax(400px, 1fr) تبدأ من 400 الى واحد رفلكشن
+         اذا تمت مساحة سيأخذ واحد رفلكشن كامل 
+         فلو كان لدي 1000
+
+        */
+        grid-template-columns:repeat(auto-fill, minmax(400px, 1fr)) ;
+        /* فراغات بين الاعمدة */
+        grid-column-gap: 40px;
+
+       
+    }
+ }
+
+ .services .box{
+     display: flex;
+ }
+
+ .services .box i {
+     margin-right: 50px;
+    
+ }
+
+ /* جعل الايقونات تكون في اعلى الشاشة */
+@media (max-width: 767px) {
+    .services .box {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .services .box i {
+        margin: 0 0 30px;
+      }
+
+
+}
+
+ .services .box h3{
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+     color: var(--main-color);
+ }
+ .services .box p{
+     /* التباعد بين الخطوط */
+    line-height: 2;
+    color: #777;
+ }
+
+ /* end Services  */
+
+ /* start montjat  */
+ .montjat{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    
+ }
+
+ .montjat .m7twayat{
+    display: grid;
+    grid-template-columns: 1fr 1fr   ;
+    /* grid-template-columns:repeat(auto-fill, minmax(400px, 1fr)) ; */
+    /* grid-template-rows: auto auto ; */
+  
+    
+ }
+
+
+ .montjat .box{
+    
+    display: block;
+    /* display: inline; */
+    /* display: inline-block; */
+    /* width: 720px; */
+    height: 115px;
+  
+    
+ }
+
+ @media (max-width: 767px){
+    .montjat .box{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+      
+    }
+     
+ }
+
+ .montjat .box i {
+     margin-right: 50px;
+     font-size: 50px;
+     color: #e84118;
+ }
+
+ .montjat .box h2{
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+     color: var(--main-color);
+ }
+
+ 
+
+ /* end montjat  */
+
+
+  /* Start Features  */
+  
+
+  .features .container{
+      display: grid;
+      grid-template-columns: auto auto auto ;
+      /* grid-template-columns: repeat(auto-fill,minmax(300px, 1fr)); */
+    
+  }
+
+
+
+  /* end Features  */
+
+  /* start Portfolio */
+.portfolio{
+    padding-top: var(--section-padding);
+    padding-bottom:var(--section-padding);
+  
+}
+
+.portfolio .shuffle{
+    /* توسيط ازرار الفلترة */
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio .shuffle li{
+padding: 10px;
+}
+
+.portfolio .shuffle .active{
+    background-color: var(--main-color);
+    color: white;
+}
+
+.portfolio .imgs-container{
+    display: flex;
+    /* اذا يوجد محتوى عدى الكونتير ينزل الى الاسفل */
+    flex-wrap: wrap;
+    /* يبتعد عن الازرار في الاعلى  */
+    margin-top: 60px;
+}
+
+.portfolio .imgs-container .box{
+overflow: hidden;
+position: relative;
+
+   /* هذه النسبة تصلح للشاشات الكبيرة والميديم
+   
+   ماذا نفعل بالشاشات الصغيرة ؟
+   نجعل صفين بالشاشة الصغيرة */
+}
+
+@media (min-width: 768px){
+    .portfolio .imgs-container .box {
+        flex-basis: 50%;
+      }
+
+}
+
+@media (min-width: 1199px){
+    .portfolio .imgs-container .box {
+        flex-basis: 25%;
+      }
+
+}
+
+.portfolio .imgs-container .box img{
+    /* الصورة لا تخرج من المحتوى */
+    max-width: 100%;
+
+   
+}
+
+/* تحريك واظهار عناوين الصور
+.portfolio .imgs-container .box{
+overflow: hidden;
+position: relative;
+ */
+.portfolio .imgs-container .box .caption{
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    background-color: white;
+    width: 100%;
+    transition: 0.3s;
+    bottom: -100%;
+    /* حين يصبح صفرا يظهر الكلام */
+}
+
+.portfolio .imgs-container .box:hover .caption {
+    bottom: 0;
+  }
+
+  .portfolio .imgs-container .box:hover img {
+    transform: rotate(3deg) scale(1.1);
+  }
+
+  .portfolio .imgs-container .box .caption h4 {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  .portfolio .imgs-container .box .caption p {
+    color: var(--main-color);
+  }
+ 
+  /* end Portfolio */
+
+ /* start Statistics */
+ .stat{
+     padding-top: 100px;
+     padding-bottom: 100px;
+     text-align: center;
+   background-image: url(/images/stats.png);
+   background-size: cover;
+   position: relative;
+ }
+
+ /* الطبقة السوداء */
+.stat::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(0 0 0 / 60%) ;
+}
+
+.stat .container{
+    /* كي يصبح الكلام فوق الطبقة السوداء */
+position: relative;
+display: flex;
+/* في حال زاد العنصر ينزل الى الاسفل */
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.stat .container .box{
+    color: azure;
+    /* الخلفية */
+    background-color: var(--transparent-color);
+    padding: 50px;
+}
+
+
+@media (max-width: 767px) {
+    .stat .container .box {
+      flex-basis: 100%;
+    }
+  }
+  @media (min-width: 768px) {
+    .stat .container .box {
+      flex-basis: 50%;
+    }
+  }
+  @media (min-width: 992px) {
+    .stat .container .box {
+      flex-basis: 25%;
+    }
+  }
+
+  .stat .container .box i {
+    
+        width: 40px;
+        height: 40px;
+        display: flex;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 0 auto 30px;
+     
+  }
+
+  .stat .container .box .number{
+      
+  } 
+
+
+ /* end Statistics */
